@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Analysis of Friends Dialogue</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <script src="../../assets/js/prism.js"></script>
+</head>
+<body>
+    <header class="project-header">
+        <h1>NLP Analysis of Friends Dialogue</h1>
+        <p class="project-subtitle">Uncovering Linguistic Patterns and Character Insights through Natural Language Processing</p>
+    </header>
+
+    <nav class="project-nav">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#implementation">Implementation</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main class="project-content">
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <p>This project applies Natural Language Processing techniques to analyze the dialogue from the popular TV show "Friends", aiming to uncover linguistic patterns, character traits, and thematic trends throughout the series.</p>
+            <a href="https://github.com/yourusername/friends-nlp-analysis" target="_blank" class="github-link">View Full Project on GitHub</a>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+            <ol>
+                <li>Data Collection and Preprocessing</li>
+                <li>Tokenization and Text Cleaning</li>
+                <li>Sentiment Analysis</li>
+                <li>Topic Modeling</li>
+                <li>Character Interaction Analysis</li>
+            </ol>
+        </section>
+
+        <section id="implementation">
+            <h2>Implementation</h2>
+            <div class="implementation-step">
+                <h3>Step 1: Sentiment Analysis</h3>
+                <pre><code class="language-python">
+from textblob import TextBlob
+
+def analyze_sentiment(text):
+    blob = TextBlob(text)
+    return blob.sentiment.polarity
+
+# Analyze sentiment for each character's dialogue
+character_sentiments = {}
+for character, dialogues in character_dialogues.items():
+    sentiments = [analyze_sentiment(dialogue) for dialogue in dialogues]
+    character_sentiments[character] = sum(sentiments) / len(sentiments)
+
+# More code...
+                </code></pre>
+                <p>In this step, we perform sentiment analysis on the dialogue of each character to understand their emotional patterns throughout the series.</p>
+            </div>
+        </section>
+
+        <section id="results">
+            <h2>Results and Analysis</h2>
+            <p>Our NLP analysis of Friends dialogue revealed interesting insights:</p>
+            <ul>
+                <li>Identified X most frequently used phrases by each character</li>
+                <li>Discovered Y main topics discussed throughout the series</li>
+                <li>Analyzed sentiment trends across seasons, revealing character development arcs</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion and Future Work</h2>
+            <p>The project successfully applied NLP techniques to gain insights into the Friends TV show. Future work will focus on:</p>
+            <ul>
+                <li>Implementing advanced NLP models for more nuanced language understanding</li>
+                <li>Extending the analysis to compare Friends with other popular sitcoms</li>
+                <li>Developing a chatbot that can generate character-specific dialogue</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

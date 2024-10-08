@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Portfolio Analysis</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <script src="../../assets/js/prism.js"></script>
+</head>
+<body>
+    <header class="project-header">
+        <h1>Investment Portfolio Analysis</h1>
+        <p class="project-subtitle">Optimizing Investment Strategies through Data-Driven Insights</p>
+    </header>
+
+    <nav class="project-nav">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#implementation">Implementation</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main class="project-content">
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <p>This project focuses on analyzing and optimizing investment portfolios using advanced financial modeling techniques and data analysis to maximize returns while managing risk.</p>
+            <a href="https://github.com/yourusername/investment-portfolio-analysis" target="_blank" class="github-link">View Full Project on GitHub</a>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+            <ol>
+                <li>Data Collection and Preprocessing</li>
+                <li>Asset Allocation Modeling</li>
+                <li>Risk Assessment and Management</li>
+                <li>Performance Attribution Analysis</li>
+                <li>Portfolio Optimization Strategies</li>
+            </ol>
+        </section>
+
+        <section id="implementation">
+            <h2>Implementation</h2>
+            <div class="implementation-step">
+                <h3>Step 1: Portfolio Risk Analysis</h3>
+                <pre><code class="language-python">
+import numpy as np
+import pandas as pd
+
+def calculate_portfolio_risk(returns, weights):
+    cov_matrix = returns.cov()
+    portfolio_variance = np.dot(weights.T, np.dot(cov_matrix, weights))
+    portfolio_volatility = np.sqrt(portfolio_variance)
+    return portfolio_volatility
+
+# More code...
+                </code></pre>
+                <p>In this step, we calculate the portfolio risk using historical returns and asset weights to assess the overall risk exposure of the investment portfolio.</p>
+            </div>
+        </section>
+
+        <section id="results">
+            <h2>Results and Analysis</h2>
+            <p>Our investment portfolio analysis yielded significant improvements:</p>
+            <ul>
+                <li>Increased risk-adjusted returns by X% over the benchmark</li>
+                <li>Reduced portfolio volatility by Y% while maintaining target returns</li>
+                <li>Identified Z underperforming assets for potential reallocation</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion and Future Work</h2>
+            <p>The project successfully optimized the investment portfolio strategy. Future work will focus on:</p>
+            <ul>
+                <li>Implementing machine learning models for market trend prediction</li>
+                <li>Incorporating alternative data sources for enhanced decision-making</li>
+                <li>Developing a real-time portfolio rebalancing system</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
