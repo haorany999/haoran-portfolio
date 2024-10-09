@@ -16,18 +16,20 @@
 				z-index: 1000;
 				padding: 10px 0;
 				text-align: center;
+				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 			}
 			#nav-menu a {
 				margin: 0 15px;
 				color: #333;
 				text-decoration: none;
 				font-weight: bold;
+				transition: color 0.3s ease;
 			}
 			#nav-menu a:hover {
 				color: #4acaa8;
 			}
 			#header {
-				padding-top: 60px;
+				padding-top: 80px; /* Increased to accommodate fixed nav */
 			}
 			.work-item h3 {
 				font-size: 1.2em;
@@ -188,20 +190,26 @@
 			<!-- Four -->
 			<section id="four">
 				<h2>Get In Touch</h2>
+				<p>Feel free to contact me through the following channels:</p>
 				<div class="row">
-					<div class="col-4 col-12-small">
+					<div class="col-12 col-12-small">
 						<ul class="labeled-icons">
 							<li>
-								<h3 class="icon solid fa-home"><span class="label">Location</span></h3>
-								Weehawken, NJ
+								<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+								Manhattan, NY<br />
+								United States
 							</li>
 							<li>
 								<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-								970-694-8403
+								(970) 694-8403
 							</li>
 							<li>
 								<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-								<a href="mailto:hy2838@Columbia.edu">hy2838@Columbia.edu</a>
+								<a href="mailto:hy2838@columbia.edu">hy2838@columbia.edu</a>
+							</li>
+							<li>
+								<h3 class="icon brands fa-linkedin"><span class="label">LinkedIn</span></h3>
+								<a href="https://www.linkedin.com/in/haoran-yang1/" target="_blank">LinkedIn Profile</a>
 							</li>
 						</ul>
 					</div>
@@ -533,13 +541,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<footer id="footer">
 			<div class="inner">
 				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="https://github.com/haorany999" class="icon brands fa-github"><span class="label">Github</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; Haoran Yang</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 			</div>
 		</footer>
@@ -551,6 +556,27 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			// Add this script to highlight the current section in the nav menu
+			window.addEventListener('scroll', function() {
+				var sections = document.querySelectorAll("section");
+				var navLinks = document.querySelectorAll("#nav-menu a");
 
+				var current = "";
+				sections.forEach(function(section) {
+					var sectionTop = section.offsetTop;
+					if (pageYOffset >= sectionTop - 60) {
+						current = section.getAttribute("id");
+					}
+				});
+
+				navLinks.forEach(function(link) {
+					link.classList.remove("active");
+					if (link.getAttribute("href").substring(1) === current) {
+						link.classList.add("active");
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
