@@ -5,87 +5,331 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gyu-Kaku Revenue Optimization</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
     <script src="../../assets/js/prism.js"></script>
+    <style>
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 修改代码块样式 */
+        pre[class*="language-"],
+        code[class*="language-"] {
+            color: #383a42;
+            background: #f6f8fa;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            tab-size: 4;
+            hyphens: none;
+        }
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+            border-radius: 0.3em;
+            border: 1px solid #e1e4e8;
+        }
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #999988;
+            font-style: italic;
+        }
+        .token.namespace {
+            opacity: .7;
+        }
+        .token.string,
+        .token.attr-value {
+            color: #e3116c;
+        }
+        .token.punctuation,
+        .token.operator {
+            color: #393A34;
+        }
+        .token.entity,
+        .token.url,
+        .token.symbol,
+        .token.number,
+        .token.boolean,
+        .token.variable,
+        .token.constant,
+        .token.property,
+        .token.regex,
+        .token.inserted {
+            color: #36acaa;
+        }
+        .token.atrule,
+        .token.keyword,
+        .token.attr-name,
+        .language-autohotkey .token.selector {
+            color: #00a4db;
+        }
+        .token.function,
+        .token.deleted,
+        .language-autohotkey .token.tag {
+            color: #9a050f;
+        }
+        .token.tag,
+        .token.selector,
+        .language-autohotkey .token.keyword {
+            color: #00009f;
+        }
+        .token.important,
+        .token.function,
+        .token.bold {
+            font-weight: bold;
+        }
+        .token.italic {
+            font-style: italic;
+        }
+
+        /* 新增样式 */
+        .project-header {
+            text-align: center;
+            padding: 3em 0;
+            background-color: #f5f5f5;
+        }
+
+        .project-header h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .project-subtitle {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .project-nav {
+            background-color: #333;
+            padding: 1em 0;
+            margin-bottom: 2em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .project-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-nav li {
+            margin: 0.5em 1em;
+        }
+
+        .project-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project-nav a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .github-link:hover {
+            background-color: #555;
+        }
+
+        /* 调整内容区域样式 */
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em 20px;
+        }
+
+        /* 调整章节标题样式 */
+        .project-content h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+            margin-top: 2em;
+        }
+
+        /* 添加以下样式来确保代码高亮正确显示 */
+        pre[class*="language-"] {
+            background: #f5f2f0;
+        }
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: slategray;
+        }
+        .token.punctuation {
+            color: #999;
+        }
+        .token.namespace {
+            opacity: .7;
+        }
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #905;
+        }
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #690;
+        }
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string {
+            color: #9a6e3a;
+        }
+        .token.atrule,
+        .token.attr-value,
+        .token.keyword {
+            color: #07a;
+        }
+        .token.function,
+        .token.class-name {
+            color: #DD4A68;
+        }
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: #e90;
+        }
+    </style>
 </head>
 <body>
     <header class="project-header">
         <h1>Gyu-Kaku Revenue Optimization</h1>
-        <p class="project-subtitle">Enhancing Restaurant Performance through Data-Driven Strategies</p>
+        <p class="project-subtitle">Improving Operational Strategies for Enhanced Financial Performance</p>
     </header>
 
     <nav class="project-nav">
         <ul>
             <li><a href="#overview">Overview</a></li>
+            <li><a href="#data-description">Data Description</a></li>
             <li><a href="#methodology">Methodology</a></li>
-            <li><a href="#implementation">Implementation</a></li>
             <li><a href="#results">Results</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
         </ul>
     </nav>
 
     <main class="project-content">
+        <a href="https://github.com/haorany999/Revenue-Optimization-through-Operational-Improvements-The-Gyu-Kaku-Approach" class="github-link" target="_blank">View Full Project on GitHub</a>
+
         <section id="overview">
-            <h2>Project Overview</h2>
-            <p>This project focuses on optimizing revenue for Gyu-Kaku, a popular Japanese BBQ restaurant chain, through data analysis and implementation of strategic recommendations.</p>
-            <a href="https://github.com/yourusername/gyu-kaku-revenue-optimization" target="_blank" class="github-link">View Full Project on GitHub</a>
+            <h2>Overview</h2>
+            <p>This project aims to optimize revenue for Gyu-Kaku restaurants by analyzing the impact of different operational strategies. We focus on three key areas: ordering methods, lighting types, and takeout options.</p>
+        </section>
+
+        <section id="data-description">
+            <h2>Data Description</h2>
+            <p>We simulated data for 10 restaurants over 22 days, considering various factors such as:</p>
+            <ul>
+                <li>Ordering methods: À la carte vs. Buffet</li>
+                <li>Lighting types: Warm, Cold, and Natural</li>
+                <li>Takeout options: With and Without Takeout</li>
+            </ul>
         </section>
 
         <section id="methodology">
             <h2>Methodology</h2>
-            <ol>
-                <li>Data Collection and Analysis</li>
-                <li>Customer Segmentation</li>
-                <li>Menu Engineering</li>
-                <li>Pricing Strategy Optimization</li>
-                <li>Operational Efficiency Analysis</li>
-            </ol>
-        </section>
+            <p>We used R for data simulation and analysis. Here's a snippet of our code for data generation:</p>
+            <pre><code class="language-r" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">library</span>(data.table)
 
-        <section id="implementation">
-            <h2>Implementation</h2>
-            <div class="implementation-step">
-                <h3>Step 1: Customer Segmentation</h3>
-                <pre><code class="language-python">
-import pandas as pd
-from sklearn.cluster import KMeans
+<span style="color: #999;"># Parameters Initialization</span>
+restaurants      <- <span style="color: #905;">10</span>         <span style="color: #999;"># Number of restaurants</span>
+days             <- <span style="color: #905;">22</span>         <span style="color: #999;"># Number of days for the simulation</span>
+baseline_revenue <- <span style="color: #905;">5625</span>       <span style="color: #999;"># Baseline daily revenue</span>
+std_dev          <- <span style="color: #905;">500</span>        <span style="color: #999;"># Standard deviation for revenue</span>
+effect_size      <- <span style="color: #905;">562.50</span>     <span style="color: #999;"># 10% increase in revenue</span>
 
-def segment_customers(data):
-    # Perform K-means clustering
-    kmeans = KMeans(n_clusters=4, random_state=42)
-    segments = kmeans.fit_predict(data)
-    
-    return segments
+<span style="color: #999;"># Create a data table for ordering methods</span>
+ordering_data <- data.table(
+  Day = rep(<span style="color: #905;">1</span>:days, times = restaurants),
+  Restaurant_ID = rep(<span style="color: #905;">1</span>:restaurants, each = days)
+)
 
-# More code...
-                </code></pre>
-                <p>In this step, we segment customers based on their dining habits and preferences to tailor marketing strategies and menu offerings.</p>
-            </div>
+<span style="color: #999;"># Generate revenue data for each ordering method</span>
+ordering_data[, `:=`(
+  Revenue_A_la_carte = round(rnorm(n = .N, mean = baseline_revenue, sd = std_dev), <span style="color: #905;">1</span>),
+  Revenue_Buffet      = round(rnorm(n = .N, mean = baseline_revenue + effect_size, sd = std_dev), <span style="color: #905;">1</span>)
+)]
+
+<span style="color: #999;"># Display the ordering data in an interactive table</span>
+datatable(data = ordering_data)
+            </code></pre>
+            <p>This code snippet demonstrates how we generated simulated data for different operational scenarios, including ordering methods, lighting types, and takeout options.</p>
         </section>
 
         <section id="results">
-            <h2>Results and Analysis</h2>
-            <p>Our revenue optimization strategies led to significant improvements:</p>
+            <h2>Results</h2>
+            <p>Our analysis revealed:</p>
             <ul>
-                <li>Increased overall revenue by X% within 6 months</li>
-                <li>Improved customer retention rate by Y%</li>
-                <li>Optimized menu profitability, increasing average check size by Z%</li>
+                <li>À la carte ordering method showed a potential increase in revenue compared to the Buffet method, with an average effect size of 198.33 units.</li>
+                <li>Implementing takeaway services demonstrated a positive impact on revenue, with an average effect size of 673.4 units.</li>
+                <li>Both findings showed high statistical power, indicating reliable results.</li>
             </ul>
+            <img src="../../assets/images/Rplot_lighting copy.png" alt="Revenue Comparison Chart" style="max-width: 100%; height: auto;">
+            <p>This chart visualizes the revenue comparison between different operational strategies.</p>
         </section>
 
         <section id="conclusion">
-            <h2>Conclusion and Future Work</h2>
-            <p>The project successfully identified and implemented key strategies for revenue optimization. Future work will focus on:</p>
+            <h2>Conclusion</h2>
+            <p>Based on our findings, we recommend:</p>
             <ul>
-                <li>Implementing a dynamic pricing model based on demand forecasting</li>
-                <li>Developing a loyalty program to further increase customer retention</li>
-                <li>Expanding the analysis to other restaurant chains for comparative insights</li>
+                <li>Implementing À la carte ordering as the primary method to potentially increase revenue.</li>
+                <li>Expanding takeaway services to tap into additional revenue streams.</li>
+                <li>Conducting further research to validate these findings in real-world settings across various locations.</li>
+                <li>Considering additional factors such as customer satisfaction, food quality, and operational costs in future analyses.</li>
             </ul>
         </section>
     </main>
 
     <footer class="project-footer">
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <p>&copy; 2023 Haoran Yang. All rights reserved.</p>
     </footer>
+
+    <script>
+        // 确保在 DOM 加载完成后执行 Prism.highlightAll()
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Prism.highlightAll();
+        });
+    </script>
 </body>
 </html>

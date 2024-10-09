@@ -5,8 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investment Portfolio Analysis</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
     <script src="../../assets/js/prism.js"></script>
+    <style>
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 修改代码块样式 */
+        pre[class*="language-"],
+        code[class*="language-"] {
+            color: #383a42;
+            background: #f6f8fa;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            tab-size: 4;
+            hyphens: none;
+        }
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+            border-radius: 0.3em;
+            border: 1px solid #e1e4e8;
+        }
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #999988;
+            font-style: italic;
+        }
+        .token.namespace {
+            opacity: .7;
+        }
+        .token.string,
+        .token.attr-value {
+            color: #e3116c;
+        }
+        .token.punctuation,
+        .token.operator {
+            color: #393A34;
+        }
+        .token.entity,
+        .token.url,
+        .token.symbol,
+        .token.number,
+        .token.boolean,
+        .token.variable,
+        .token.constant,
+        .token.property,
+        .token.regex,
+        .token.inserted {
+            color: #36acaa;
+        }
+        .token.atrule,
+        .token.keyword,
+        .token.attr-name,
+        .language-autohotkey .token.selector {
+            color: #00a4db;
+        }
+        .token.function,
+        .token.deleted,
+        .language-autohotkey .token.tag {
+            color: #9a050f;
+        }
+        .token.tag,
+        .token.selector,
+        .language-autohotkey .token.keyword {
+            color: #00009f;
+        }
+        .token.important,
+        .token.function,
+        .token.bold {
+            font-weight: bold;
+        }
+        .token.italic {
+            font-style: italic;
+        }
+
+        /* 新增样式 */
+        .project-header {
+            text-align: center;
+            padding: 3em 0;
+            background-color: #f5f5f5;
+        }
+
+        .project-header h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .project-subtitle {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .project-nav {
+            background-color: #333;
+            padding: 1em 0;
+            margin-bottom: 2em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .project-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-nav li {
+            margin: 0.5em 1em;
+        }
+
+        .project-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project-nav a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .github-link:hover {
+            background-color: #555;
+        }
+
+        /* 调整内容区域样式 */
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em 20px;
+        }
+
+        /* 调整章节标题样式 */
+        .project-content h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+            margin-top: 2em;
+        }
+    </style>
 </head>
 <body>
     <header class="project-header">
@@ -25,10 +194,11 @@
     </nav>
 
     <main class="project-content">
+        <a href="https://github.com/yourusername/investment-portfolio-analysis" target="_blank" class="github-link">View Full Project on GitHub</a>
+
         <section id="overview">
             <h2>Project Overview</h2>
             <p>This project focuses on analyzing and optimizing investment portfolios using advanced financial modeling techniques and data analysis to maximize returns while managing risk.</p>
-            <a href="https://github.com/yourusername/investment-portfolio-analysis" target="_blank" class="github-link">View Full Project on GitHub</a>
         </section>
 
         <section id="methodology">
@@ -45,7 +215,7 @@
         <section id="implementation">
             <h2>Implementation</h2>
             <div class="implementation-step">
-                <h3>Step 1: Portfolio Risk Analysis</h3>
+                <h3>Step 1: Portfolio Risk Calculation</h3>
                 <pre><code class="language-python">
 import numpy as np
 import pandas as pd
@@ -86,5 +256,11 @@ def calculate_portfolio_risk(returns, weights):
     <footer class="project-footer">
         <p>&copy; 2023 Your Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Prism.highlightAll();
+        });
+    </script>
 </body>
 </html>
