@@ -5,21 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intelligent Tagging and Recommendation System for StackOverflow</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
     <script src="../../assets/js/prism.js"></script>
+    <style>
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 修改代码块样式 */
+        pre[class*="language-"],
+        code[class*="language-"] {
+            color: #383a42;
+            background: #f6f8fa;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            tab-size: 4;
+            hyphens: none;
+        }
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+            border-radius: 0.3em;
+            border: 1px solid #e1e4e8;
+        }
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #999988;
+            font-style: italic;
+        }
+        .token.namespace {
+            opacity: .7;
+        }
+        .token.string,
+        .token.attr-value {
+            color: #e3116c;
+        }
+        .token.punctuation,
+        .token.operator {
+            color: #393A34;
+        }
+        .token.entity,
+        .token.url,
+        .token.symbol,
+        .token.number,
+        .token.boolean,
+        .token.variable,
+        .token.constant,
+        .token.property,
+        .token.regex,
+        .token.inserted {
+            color: #36acaa;
+        }
+        .token.atrule,
+        .token.keyword,
+        .token.attr-name,
+        .language-autohotkey .token.selector {
+            color: #00a4db;
+        }
+        .token.function,
+        .token.deleted,
+        .language-autohotkey .token.tag {
+            color: #9a050f;
+        }
+        .token.tag,
+        .token.selector,
+        .language-autohotkey .token.keyword {
+            color: #00009f;
+        }
+        .token.important,
+        .token.function,
+        .token.bold {
+            font-weight: bold;
+        }
+        .token.italic {
+            font-style: italic;
+        }
+
+        /* 新增样式 */
+        .project-header {
+            text-align: center;
+            padding: 3em 0;
+            background-color: #f5f5f5;
+        }
+
+        .project-header h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .project-subtitle {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .project-nav {
+            background-color: #333;
+            padding: 1em 0;
+            margin-bottom: 2em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .project-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-nav li {
+            margin: 0.5em 1em;
+        }
+
+        .project-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project-nav a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .github-link:hover {
+            background-color: #555;
+        }
+
+        /* 调整内容区域样式 */
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em 20px;
+        }
+
+        /* 调整章节标题样式 */
+        .project-content h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+            margin-top: 2em;
+        }
+    </style>
 </head>
 <body>
     <header class="project-header">
-        <h1>Intelligent Tagging and Recommendation System</h1>
-        <p class="project-subtitle">Automating Tag Generation for StackOverflow Posts</p>
+        <h1>Intelligent Tagging and Recommendation System for StackOverflow</h1>
+        <p class="project-subtitle">APAN 5430: Applied Text & Natural Language Analytics Term Project</p>
     </header>
 
     <nav class="project-nav">
         <ul>
             <li><a href="#overview">Overview</a></li>
-            <li><a href="#methodology">Methodology</a></li>
-            <li><a href="#implementation">Implementation</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="#data-description">Data Description</a></li>
+            <li><a href="#data-processing">Data Processing</a></li>
+            <li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+            <li><a href="#model-building">Model Building</a></li>
+            <li><a href="#model-evaluation">Model Evaluation</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
         </ul>
     </nav>
@@ -27,67 +198,177 @@
     <main class="project-content">
         <section id="overview">
             <h2>Project Overview</h2>
-            <p>This project aims to develop an intelligent system for automatically generating tags and providing recommendations for StackOverflow posts. By leveraging data cleansing techniques, text analysis, and machine learning models, we create a robust solution for enhancing content organization and discovery on the platform.</p>
-            <a href="https://github.com/haorany999/Intelligent-Tagging-and-Recommendations-for-StackOverflow" target="_blank" class="github-link">View Full Project on GitHub</a>
+            <p>This project aims to develop an intelligent tagging and recommendation system for StackOverflow posts. By leveraging Natural Language Processing (NLP) techniques, we predict appropriate tags for new posts and recommend similar posts based on their content. Our approach combines advanced text processing, exploratory data analysis, and state-of-the-art machine learning models to create a robust and efficient system.</p>
+            <p><strong>Group Members:</strong> Sixuan Li, Wenyang Cao, Haoran Yang, Wenling Zhou, Jake Xiao</p>
+            <a href="https://github.com/haorany999/Intelligent-Tagging-and-Recommendations-for-StackOverflow" target="_blank" class="github-link">View Project on GitHub</a>
         </section>
 
-        <section id="methodology">
-            <h2>Methodology</h2>
+        <section id="data-description">
+            <h2>Data Description</h2>
+            <p>The dataset for this project is obtained from <a href="https://www.kaggle.com/datasets/stackoverflow/stacksample/data" target="_blank">Kaggle StackOverflow Data</a> and includes three main files:</p>
             <ol>
-                <li>Data Collection and Preprocessing</li>
-                <li>Text Analysis and Feature Extraction</li>
-                <li>Machine Learning Model Development</li>
-                <li>Tag Generation Algorithm</li>
-                <li>Recommendation System Implementation</li>
+                <li><strong>Questions.csv:</strong> Contains questions with fields such as Id, OwnerUserId, CreationDate, ClosedDate, Score, Title, and Body.</li>
+                <li><strong>Answers.csv:</strong> Includes fields like Id, OwnerUserId, CreationDate, ParentId, Score, and Body.</li>
+                <li><strong>Tags.csv:</strong> Contains Id and Tag pairs, with each question associated with one or more tags.</li>
             </ol>
-            <!-- 这里可以添加更多关于方法论的详细内容 -->
+            <p>Here's a snapshot of our data loading process:</p>
+            <pre><code class="language-python" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">import</span> pandas <span style="color: #07a;">as</span> pd
+
+<span style="color: #999;"># Load the datasets</span>
+questions_df = pd.read_csv(<span style="color: #690;">'Questions.csv'</span>, encoding=<span style="color: #690;">'ISO-8859-1'</span>)
+answers_df = pd.read_csv(<span style="color: #690;">'Answers.csv'</span>, encoding=<span style="color: #690;">'ISO-8859-1'</span>)
+tags_df = pd.read_csv(<span style="color: #690;">'Tags.csv'</span>, encoding=<span style="color: #690;">'ISO-8859-1'</span>)
+
+<span style="color: #999;"># Print the shapes of the datasets</span>
+<span style="color: #07a;">print</span>(<span style="color: #690;">f"Questions dataset shape: </span>{questions_df.shape}<span style="color: #690;">"</span>)
+<span style="color: #07a;">print</span>(<span style="color: #690;">f"Answers dataset shape: </span>{answers_df.shape}<span style="color: #690;">"</span>)
+<span style="color: #07a;">print</span>(<span style="color: #690;">f"Tags dataset shape: </span>{tags_df.shape}<span style="color: #690;">"</span>)
+
+<span style="color: #999;"># Display the first few rows of each dataset</span>
+<span style="color: #07a;">print</span>(<span style="color: #690;">"\nFirst few rows of Questions dataset:"</span>)
+<span style="color: #07a;">print</span>(questions_df.head())
+
+<span style="color: #07a;">print</span>(<span style="color: #690;">"\nFirst few rows of Answers dataset:"</span>)
+<span style="color: #07a;">print</span>(answers_df.head())
+
+<span style="color: #07a;">print</span>(<span style="color: #690;">"\nFirst few rows of Tags dataset:"</span>)
+<span style="color: #07a;">print</span>(tags_df.head())
+
+<span style="color: #999;"># Check for missing values</span>
+<span style="color: #07a;">print</span>(<span style="color: #690;">"\nMissing values in Questions dataset:"</span>)
+<span style="color: #07a;">print</span>(questions_df.isnull().sum())
+
+<span style="color: #07a;">print</span>(<span style="color: #690;">"\nMissing values in Answers dataset:"</span>)
+<span style="color: #07a;">print</span>(answers_df.isnull().sum())
+
+<span style="color: #07a;">print</span>(<span style="color: #690;">"\nMissing values in Tags dataset:"</span>)
+<span style="color: #07a;">print</span>(tags_df.isnull().sum())
+            </code></pre>
+            <p>This initial look at our data provides us with the dimensions of each dataset, allowing us to understand the scale of the information we're working with.</p>
         </section>
 
-        <section id="implementation">
-            <h2>Implementation</h2>
-            <div class="implementation-step">
-                <h3>Step 1: Data Preprocessing</h3>
-                <pre><code class="language-python">
-# 示例代码
-import pandas as pd
+        <section id="data-processing">
+            <h2>Data Processing</h2>
+            <h3>Data Cleaning and Preprocessing</h3>
+            <p>Our data processing pipeline involves several crucial steps:</p>
+            <ol>
+                <li>Handling missing values</li>
+                <li>Removing HTML tags and special characters</li>
+                <li>Tokenization and lemmatization</li>
+                <li>Removing stop words</li>
+                <li>Handling multi-word expressions</li>
+            </ol>
+            <p>Here's a key function in our preprocessing pipeline:</p>
+            <pre><code class="language-python" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">import</span> spacy
+<span style="color: #07a;">from</span> nltk.tokenize <span style="color: #07a;">import</span> word_tokenize
+<span style="color: #07a;">from</span> nltk.corpus <span style="color: #07a;">import</span> stopwords
+<span style="color: #07a;">from</span> nltk.stem <span style="color: #07a;">import</span> WordNetLemmatizer
+<span style="color: #07a;">from</span> nltk.tokenize.mwe <span style="color: #07a;">import</span> MWETokenizer
 
-def preprocess_data(data):
-    # 数据清洗和预处理步骤
-    pass
+nlp = spacy.load(<span style="color: #690;">'en_core_web_sm'</span>)
+lemmatizer = WordNetLemmatizer()
+stop_words = set(stopwords.words(<span style="color: #690;">'english'</span>))
+mwe_tokenizer = MWETokenizer(separator=<span style="color: #690;">""</span>)
 
-# 更多代码...
-                </code></pre>
-                <p>在这一步中，我们对原始数据进行清洗和预处理，包括去除噪声、标准化文本等操作。</p>
-                <!-- 这里可以添加图片 -->
-                <img src="path_to_image" alt="Data Preprocessing Workflow" class="project-image">
-            </div>
-            <!-- 可以继续添加更多实现步骤 -->
+<span style="color: #07a;">def</span> <span style="color: #DD4A68;">preprocess_text</span>(text):
+    text = text.lower()
+    words = word_tokenize(text)
+    words = [word <span style="color: #07a;">for</span> word <span style="color: #07a;">in</span> words <span style="color: #07a;">if</span> word.isalpha() <span style="color: #07a;">or</span> word <span style="color: #07a;">in</span> list(<span style="color: #690;">"+"</span>) + topics_with_symbols]
+    words = [word <span style="color: #07a;">for</span> word <span style="color: #07a;">in</span> words <span style="color: #07a;">if</span> word.lower() <span style="color: #07a;">not</span> <span style="color: #07a;">in</span> stop_words]
+    words = mwe_tokenizer.tokenize(words)
+    words = [lemmatizer.lemmatize(word) <span style="color: #07a;">for</span> word <span style="color: #07a;">in</span> words]
+    <span style="color: #07a;">return</span> words
+
+questions_tags_df[<span style="color: #690;">"body_tokenized"</span>] = questions_tags_df[<span style="color: #690;">"body"</span>].progress_apply(preprocess_text)
+questions_tags_df[<span style="color: #690;">"title_tokenized"</span>] = questions_tags_df[<span style="color: #690;">"title"</span>].progress_apply(preprocess_text)
+</code></pre>
+            <p>This function combines several NLP techniques to clean and standardize our text data, preparing it for further analysis and modeling.</p>
         </section>
 
-        <section id="results">
-            <h2>Results and Analysis</h2>
-            <p>Our intelligent tagging system achieved significant improvements in tag accuracy and recommendation relevance. Key findings include:</p>
+        <section id="exploratory-data-analysis">
+            <h2>Exploratory Data Analysis (EDA)</h2>
+            <p>Our EDA phase focused on understanding the distribution of tags and the characteristics of our text data. Here's an example of how we visualized the top 50 tags:</p>
+            <pre><code class="language-python" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">import</span> matplotlib.pyplot <span style="color: #07a;">as</span> plt
+<span style="color: #07a;">import</span> seaborn <span style="color: #07a;">as</span> sns
+
+tag_value_counts = tags_df[<span style="color: #690;">"Tag"</span>].value_counts()
+top_fifty_tags = tag_value_counts.head(<span style="color: #905;">50</span>)
+
+plt.figure(figsize=(<span style="color: #905;">15</span>, <span style="color: #905;">8</span>))
+sns.barplot(x=top_fifty_tags.index, y=top_fifty_tags.values, palette=<span style="color: #690;">"Blues_d"</span>)
+plt.xlabel(<span style="color: #690;">'Tags'</span>, fontsize=<span style="color: #905;">14</span>)
+plt.ylabel(<span style="color: #690;">'Counts'</span>, fontsize=<span style="color: #905;">14</span>)
+plt.title(<span style="color: #690;">'Top 50 Tags'</span>, fontsize=<span style="color: #905;">18</span>)
+plt.xticks(rotation=<span style="color: #905;">70</span>, fontsize=<span style="color: #905;">12</span>)
+plt.tight_layout()
+plt.show()
+            </code></pre>
+            <p>This visualization helped us identify the most common tags in our dataset, informing our decision to focus on the top 4,000 tags for our model.</p>
+            <img src="path_to_tag_distribution_image" alt="Top 50 Tags Distribution" class="project-image">
+        </section>
+
+        <section id="model-building">
+            <h2>Model Building</h2>
+            <p>We employed Latent Dirichlet Allocation (LDA) for topic modeling and various machine learning models for tag prediction. Here's how we set up our LDA model:</p>
+            <pre><code class="language-python" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">from</span> gensim.models <span style="color: #07a;">import</span> ldamodel
+<span style="color: #07a;">from</span> gensim.corpora <span style="color: #07a;">import</span> Dictionary
+
+dictionary = Dictionary(titles)
+dictionary.filter_extremes(no_below=<span style="color: #905;">10</span>, no_above=<span style="color: #905;">0.8</span>)
+corpora = [dictionary.doc2bow(doc) <span style="color: #07a;">for</span> doc <span style="color: #07a;">in</span> titles]
+
+lda_model = ldamodel.LdaModel(corpora, num_topics=<span style="color: #905;">10</span>, id2word=dictionary, passes=<span style="color: #905;">50</span>)
+            </code></pre>
+            <p>This LDA model helps us uncover latent topics in our text data, providing insights into the thematic structure of StackOverflow questions.</p>
+        </section>
+
+        <section id="model-evaluation">
+            <h2>Model Evaluation</h2>
+            <p>We evaluated our LDA model using perplexity and coherence scores:</p>
+            <pre><code class="language-python" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">from</span> gensim.models <span style="color: #07a;">import</span> CoherenceModel
+
+perplexity = lda_model.log_perplexity(corpora)
+coherence_model_lda = CoherenceModel(model=lda_model, texts=titles, dictionary=dictionary, coherence=<span style="color: #690;">'c_v'</span>)
+coherence_lda = coherence_model_lda.get_coherence()
+
+<span style="color: #07a;">print</span>(<span style="color: #690;">f'Perplexity: </span>{perplexity}<span style="color: #690;">'</span>)
+<span style="color: #07a;">print</span>(<span style="color: #690;">f'Coherence Score: </span>{coherence_lda}<span style="color: #690;">'</span>)
+            </code></pre>
+            <p>Results:</p>
             <ul>
-                <li>Tag generation accuracy increased by X%</li>
-                <li>User engagement with recommended content improved by Y%</li>
-                <li>System performance metrics...</li>
+                <li><strong>Perplexity:</strong> -8.221812828255267</li>
+                <li><strong>Coherence Score:</strong> 0.2888966970234389</li>
             </ul>
-            <!-- 这里可以添加结果图表或可视化 -->
+            <p>The low perplexity value indicates a good fit of the model to the data, while the moderate coherence score suggests that the model has successfully identified semantically consistent topics.</p>
         </section>
 
         <section id="conclusion">
-            <h2>Conclusion and Future Work</h2>
-            <p>The developed system demonstrates the potential of machine learning in enhancing content organization on platforms like StackOverflow. Future work will focus on:</p>
+            <h2>Conclusion</h2>
+            <p>Our Intelligent Tagging and Recommendation System for StackOverflow demonstrates effective text processing and topic modeling capabilities. The LDA model shows good performance with a strong fit to the data and the ability to produce meaningful and interpretable topics. These results indicate that the model is well-constructed and effective in capturing the essential themes in the dataset.</p>
+            <p>Future work may include:</p>
             <ul>
-                <li>Improving model accuracy through advanced NLP techniques</li>
-                <li>Expanding the system to support multiple languages</li>
-                <li>Integrating user feedback for continuous learning</li>
+                <li>Implementing the tag prediction system using the insights gained from topic modeling.</li>
+                <li>Developing a recommendation system based on content similarity.</li>
+                <li>Exploring more advanced NLP techniques to further improve the model's performance.</li>
+                <li>Integrating deep learning models for enhanced tag prediction accuracy.</li>
             </ul>
         </section>
     </main>
 
     <footer class="project-footer">
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <p>&copy; 2023 APAN 5430 Group 3. All rights reserved.</p>
     </footer>
+
+    <script>
+        // 移除这个脚本，因为我们现在使用内联样式
+        // document.addEventListener('DOMContentLoaded', (event) => {
+        //     Prism.highlightAll();
+        // });
+    </script>
 </body>
 </html>
