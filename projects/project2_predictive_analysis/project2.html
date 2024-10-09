@@ -3,15 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predictive Analysis Competition</title>
+    <title>Predictive Analysis for Used Car Sale Price</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
     <script src="../../assets/js/prism.js"></script>
+    <style>
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 修改代码块样式 */
+        pre[class*="language-"],
+        code[class*="language-"] {
+            color: #383a42;
+            background: #f6f8fa;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+            tab-size: 4;
+            hyphens: none;
+        }
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+            border-radius: 0.3em;
+            border: 1px solid #e1e4e8;
+        }
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #999988;
+            font-style: italic;
+        }
+        .token.namespace {
+            opacity: .7;
+        }
+        .token.string,
+        .token.attr-value {
+            color: #e3116c;
+        }
+        .token.punctuation,
+        .token.operator {
+            color: #393A34;
+        }
+        .token.entity,
+        .token.url,
+        .token.symbol,
+        .token.number,
+        .token.boolean,
+        .token.variable,
+        .token.constant,
+        .token.property,
+        .token.regex,
+        .token.inserted {
+            color: #36acaa;
+        }
+        .token.atrule,
+        .token.keyword,
+        .token.attr-name,
+        .language-autohotkey .token.selector {
+            color: #00a4db;
+        }
+        .token.function,
+        .token.deleted,
+        .language-autohotkey .token.tag {
+            color: #9a050f;
+        }
+        .token.tag,
+        .token.selector,
+        .language-autohotkey .token.keyword {
+            color: #00009f;
+        }
+        .token.important,
+        .token.function,
+        .token.bold {
+            font-weight: bold;
+        }
+        .token.italic {
+            font-style: italic;
+        }
+
+        /* 新增样式 */
+        .project-header {
+            text-align: center;
+            padding: 3em 0;
+            background-color: #f5f5f5;
+        }
+
+        .project-header h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .project-subtitle {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .project-nav {
+            background-color: #333;
+            padding: 1em 0;
+            margin-bottom: 2em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .project-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-nav li {
+            margin: 0.5em 1em;
+        }
+
+        .project-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project-nav a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .github-link:hover {
+            background-color: #555;
+        }
+
+        /* 调整内容区域样式 */
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em 20px;
+        }
+
+        /* 调整章节标题样式 */
+        .project-content h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+            margin-top: 2em;
+        }
+    </style>
 </head>
 <body>
     <header class="project-header">
-        <h1>Predictive Analysis Competition</h1>
-        <p class="project-subtitle">Leveraging Machine Learning for Accurate Predictions</p>
+        <h1>Predictive Analysis for Used Car Sale Price</h1>
+        <p class="project-subtitle">Leveraging Machine Learning for Accurate Price Predictions</p>
     </header>
 
     <nav class="project-nav">
@@ -27,18 +196,19 @@
     <main class="project-content">
         <section id="overview">
             <h2>Project Overview</h2>
-            <p>This project focuses on a predictive analysis competition, where we developed and implemented advanced machine learning models to forecast outcomes based on complex datasets.</p>
-            <a href="https://github.com/yourusername/predictive-analysis-competition" target="_blank" class="github-link">View Full Project on GitHub</a>
+            <p>This project focuses on developing a predictive model for used car sale prices as part of a Kaggle competition. We analyzed a dataset of 40,000 used cars, described by various features and conditions. Our primary objective was to construct an accurate predictive model, balancing the intricacies of data preparation, feature selection, and model tuning.</p>
+            <a href="https://github.com/haorany999/Predictive-Analysis-for-Used-Car-Sale-Price" target="_blank" class="github-link">View Full Project on GitHub</a>
         </section>
 
         <section id="methodology">
             <h2>Methodology</h2>
             <ol>
-                <li>Data Preprocessing and Feature Engineering</li>
-                <li>Model Selection and Hyperparameter Tuning</li>
-                <li>Ensemble Methods Implementation</li>
-                <li>Cross-Validation and Performance Metrics</li>
-                <li>Final Model Deployment and Submission</li>
+                <li>Data Exploration and Understanding</li>
+                <li>Data Preprocessing and Cleaning</li>
+                <li>Feature Engineering and Selection</li>
+                <li>Model Development using Random Forest</li>
+                <li>Model Evaluation and Feature Importance Analysis</li>
+                <li>Prediction on Test Data</li>
             </ol>
         </section>
 
@@ -46,50 +216,105 @@
             <h2>Implementation</h2>
             <div class="implementation-step">
                 <h3>Step 1: Data Preprocessing</h3>
-                <pre><code class="language-python">
-import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
+                <p>We started by handling missing values and encoding categorical variables:</p>
+                <pre><code class="language-r" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">library</span>(dplyr)
+<span style="color: #07a;">library</span>(tidyr)
 
-def preprocess_data(data):
-    # Handle missing values
-    data = data.fillna(data.mean())
-    
-    # Feature scaling
-    scaler = StandardScaler()
-    data_scaled = scaler.fit_transform(data)
-    
-    return data_scaled
+<span style="color: #999;"># Fill NA in numeric columns with mean</span>
+data <- data %>%
+  mutate_at(vars(names(data)[numeric_vars]), ~ ifelse(is.na(.), mean(., na.rm = <span style="color: #905;">TRUE</span>), .))
 
-# More code...
+<span style="color: #999;"># Handle categorical variables</span>
+mode_color <- data %>%
+  group_by(exterior_color) %>%
+  summarize(count = n()) %>%
+  arrange(desc(count)) %>%
+  top_n(<span style="color: #905;">1</span>, count) %>%
+  pull(exterior_color)
+
+data$exterior_color[is.na(data$exterior_color)] <- mode_color
                 </code></pre>
-                <p>In this step, we preprocess the raw data by handling missing values and scaling features to prepare for model training.</p>
+                <p>This step involved filling missing values in numeric columns with the mean and handling categorical variables like 'exterior_color' by using the mode.</p>
+            </div>
+
+            <div class="implementation-step">
+                <h3>Step 2: Feature Engineering</h3>
+                <p>We extracted additional features from existing ones, particularly from the 'power' and 'torque' columns:</p>
+                <pre><code class="language-r" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #999;"># Extract power and torque features</span>
+data$power_hp <- as.numeric(gsub(<span style="color: #690;">" hp.*"</span>, <span style="color: #690;">""</span>, data$power))
+data$power_rpm <- as.numeric(gsub(<span style="color: #690;">","</span>, <span style="color: #690;">""</span>, gsub(<span style="color: #690;">".*@"</span>, <span style="color: #690;">""</span>, gsub(<span style="color: #690;">" RPM"</span>, <span style="color: #690;">""</span>, data$power))))
+data$torque_lbft <- as.numeric(gsub(<span style="color: #690;">" lb-ft.*"</span>, <span style="color: #690;">""</span>, data$torque))
+data$torque_rpm <- as.numeric(gsub(<span style="color: #690;">","</span>, <span style="color: #690;">""</span>, gsub(<span style="color: #690;">".*@"</span>, <span style="color: #690;">""</span>, gsub(<span style="color: #690;">" RPM"</span>, <span style="color: #690;">""</span>, data$torque))))
+
+<span style="color: #999;"># Handle new NAs</span>
+data$power_hp[is.na(data$power_hp)] <- median(data$power_hp, na.rm = <span style="color: #905;">TRUE</span>)
+data$power_rpm[is.na(data$power_rpm)] <- median(data$power_rpm, na.rm = <span style="color: #905;">TRUE</span>)
+data$torque_lbft[is.na(data$torque_lbft)] <- median(data$torque_lbft, na.rm = <span style="color: #905;">TRUE</span>)
+data$torque_rpm[is.na(data$torque_rpm)] <- median(data$torque_rpm, na.rm = <span style="color: #905;">TRUE</span>)
+                </code></pre>
+                <p>This step involved extracting horsepower and RPM values from the 'power' column, and torque and its corresponding RPM from the 'torque' column. We then handled any new NAs created during this process by replacing them with median values.</p>
+            </div>
+
+            <div class="implementation-step">
+                <h3>Step 3: Model Development</h3>
+                <p>We chose Random Forest as our primary model due to its ability to handle complex relationships and its robustness against overfitting.</p>
+                <pre><code class="language-r" style="color: #333; background-color: #f5f5f5; display: block; padding: 1em; margin: 0.5em 0; border-radius: 4px; border: 1px solid #ccc; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;">
+<span style="color: #07a;">library</span>(randomForest)
+
+selected_vars <- c(<span style="color: #690;">"make_name"</span>, <span style="color: #690;">"model_name"</span>, <span style="color: #690;">"trim_name"</span>, <span style="color: #690;">"body_type"</span>, <span style="color: #690;">"fuel_type"</span>,
+                   <span style="color: #690;">"transmission"</span>, <span style="color: #690;">"wheel_system"</span>, <span style="color: #690;">"engine_type"</span>, <span style="color: #690;">"franchise_make"</span>, <span style="color: #690;">"is_new"</span>,
+                   <span style="color: #690;">"height_inches"</span>, <span style="color: #690;">"horsepower"</span>, <span style="color: #690;">"daysonmarket"</span>, <span style="color: #690;">"maximum_seating"</span>, <span style="color: #690;">"mileage"</span>,
+                   <span style="color: #690;">"owner_count"</span>, <span style="color: #690;">"seller_rating"</span>, <span style="color: #690;">"power_hp"</span>, <span style="color: #690;">"power_rpm"</span>, <span style="color: #690;">"torque_lbft"</span>,
+                   <span style="color: #690;">"torque_rpm"</span>, <span style="color: #690;">"price"</span>)
+
+sub_data <- data[, selected_vars]
+rf_model <- randomForest(price ~ ., data=sub_data, ntree=<span style="color: #905;">1000</span>, mtry=<span style="color: #905;">13</span>, importance=<span style="color: #905;">TRUE</span>)
+                </code></pre>
+                <p>We carefully selected 22 variables that we believed would be most predictive of car prices. The Random Forest model was trained with 1000 trees and 13 variables tried at each split.</p>
             </div>
         </section>
 
         <section id="results">
             <h2>Results and Analysis</h2>
-            <p>Our predictive analysis model achieved significant results in the competition:</p>
+            <p>Our Random Forest model achieved significant results in predicting used car prices:</p>
             <ul>
-                <li>Achieved X% accuracy on the test set</li>
-                <li>Ranked in the top Y% of all participants</li>
-                <li>Identified key features that contributed most to the predictions</li>
+                <li>The model identified key features that contributed most to price predictions.</li>
+                <li>We visualized feature importance to understand which variables had the most impact on price.</li>
             </ul>
+            <h3>Feature Importance Plot</h3>
+            <img src="path_to_feature_importance_plot.png" alt="Top 20 Feature Importances for Used Car Price Prediction" class="project-image">
+            <p>This plot shows the top features that were most influential in predicting car prices. Features like mileage, make, and model were among the top predictors.</p>
         </section>
 
         <section id="conclusion">
             <h2>Conclusion and Future Work</h2>
-            <p>This competition provided valuable insights into advanced predictive modeling techniques. Future work will focus on:</p>
+            <p>This project demonstrated the effectiveness of using Random Forest for predicting used car prices. Key insights include:</p>
             <ul>
-                <li>Exploring more sophisticated ensemble methods</li>
-                <li>Implementing deep learning models for improved accuracy</li>
-                <li>Developing strategies for handling imbalanced datasets</li>
+                <li>The importance of features like mileage, make, and model in determining car prices.</li>
+                <li>The model's ability to capture non-linear relationships in the data.</li>
+                <li>The effectiveness of our feature engineering process, particularly in extracting meaningful information from complex variables like 'power' and 'torque'.</li>
+            </ul>
+            <p>Future work could focus on:</p>
+            <ul>
+                <li>Exploring more sophisticated ensemble methods to potentially improve prediction accuracy.</li>
+                <li>Implementing deep learning models for comparison with our Random Forest approach.</li>
+                <li>Developing strategies for handling imbalanced datasets, if present in future iterations of this problem.</li>
+                <li>Incorporating more external data sources to enhance prediction accuracy.</li>
             </ul>
         </section>
     </main>
 
     <footer class="project-footer">
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <p>&copy; 2023 Haoran Yang. All rights reserved.</p>
     </footer>
+
+    <script>
+        // 移除这个脚本，因为我们现在使用内联样式
+        // document.addEventListener('DOMContentLoaded', (event) => {
+        //     Prism.highlightAll();
+        // });
+    </script>
 </body>
 </html>
