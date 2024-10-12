@@ -6,6 +6,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- 添加 Font Awesome CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 		<style>
 			#nav-menu {
 				position: fixed;
@@ -26,7 +28,7 @@
 				transition: color 0.3s ease;
 			}
 			#nav-menu a:hover {
-				color: #4acaa8;
+				color: #888; /* 浅灰色 */
 			}
 			#header {
 				padding-top: 80px; /* Increased to accommodate fixed nav */
@@ -51,6 +53,70 @@
 				font-size: 2em;
 				margin-bottom: 0.5em;
 			}
+			.keywords-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 20px;
+			}
+
+			.keywords {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 10px;
+				max-width: 500px;
+			}
+
+			.keywords span {
+				background-color: #1e90ff; /* 深蓝色，与您的主题相匹配 */
+				color: white;
+				padding: 8px 15px;
+				border-radius: 20px;
+				font-size: 0.9em;
+				text-align: center;
+				transition: all 0.3s ease;
+			}
+
+			.keywords span:hover {
+				transform: scale(1.05);
+				box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3); /* 深蓝色阴影 */
+			}
+
+			@media (max-width: 480px) {
+				.keywords {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			/* 添加以下样式来调整联系信息布局 */
+			#four .row {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			#four .col-6 {
+				width: 50%;
+				padding: 0 15px;
+			}
+
+			@media screen and (max-width: 736px) {
+				#four .col-6 {
+					width: 100%;
+				}
+			}
+
+			/* 添加图标样式 */
+			.skill-list {
+				list-style-type: none;
+				padding-left: 0;
+			}
+			.skill-list li {
+				margin-bottom: 10px;
+			}
+			.skill-list i {
+				margin-right: 10px;
+				color: #1e90ff; /* 使用深蓝色，与您的主题相匹配 */
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -70,6 +136,15 @@
 				<img src="images/headshot_haoran.jpg" alt="Haoran Yang" style="width: 100px; height: auto; border-radius: 50%;" />
 				<h1><strong>Haoran Yang</strong></h1>
 				<h2>Data Scientist | Financial Analyst</h2>
+				<p>Transforming Data into Actionable Insights</p>
+				<div class="keywords-container">
+					<div class="keywords">
+						<span>Machine Learning</span>
+						<span>Financial Modeling</span>
+						<span>Data Visualization</span>
+						<span>Risk Analysis</span>
+					</div>
+				</div>
 			</div>
 		</header>
 		
@@ -82,10 +157,10 @@
 				<p>I am a skilled professional in Data Science and Financial Analysis, leveraging advanced analytics and modeling to drive informed business decisions and optimize processes.</p>
 				
 				<h3>Technical Skills</h3>
-				<ul>
-					<li>Data Analytics: Python, RStudio, Tableau, Microsoft Office Suite (Expert in Excel), Bloomberg Terminal.</li>
-					<li>Database Mgmt: MySQL, PostgreSQL (pgAdmin), NoSQL (MongoDB, PyMongo, Neo4j).</li>
-					<li>Machine Learning: Python (Scikit-learn, Pipeline, TensorFlow), R (Feature Selection, Clustering, Regression).</li>
+				<ul class="skill-list">
+					<li><i class="fas fa-chart-line"></i> Data Analytics: Python, RStudio, Tableau, Microsoft Office Suite (Expert in Excel), Bloomberg Terminal.</li>
+					<li><i class="fas fa-database"></i> Database Mgmt: MySQL, PostgreSQL (pgAdmin), NoSQL (MongoDB, PyMongo, Neo4j).</li>
+					<li><i class="fas fa-brain"></i> Machine Learning: Python (Scikit-learn, Pipeline, TensorFlow), R (Feature Selection, Clustering, Regression).</li>
 				</ul>
 			
 				<h2 id="education">Education</h2>
@@ -201,7 +276,7 @@
 				<h2>Get In Touch</h2>
 				<p>Feel free to contact me through the following channels:</p>
 				<div class="row">
-					<div class="col-12 col-12-small">
+					<div class="col-6 col-12-small">
 						<ul class="labeled-icons">
 							<li>
 								<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
@@ -212,6 +287,10 @@
 								<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
 								(970) 694-8403
 							</li>
+						</ul>
+					</div>
+					<div class="col-6 col-12-small">
+						<ul class="labeled-icons">
 							<li>
 								<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
 								<a href="mailto:hy2838@columbia.edu">hy2838@columbia.edu</a>
