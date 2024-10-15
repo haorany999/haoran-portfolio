@@ -16,7 +16,7 @@
         pre[class*="language-"],
         code[class*="language-"] {
             color: #383a42;
-            background: #f6f8fa;
+            background: #f5f2f0;
             font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
             font-size: 1em;
             text-align: left;
@@ -33,7 +33,6 @@
             margin: .5em 0;
             overflow: auto;
             border-radius: 0.3em;
-            border: 1px solid #e1e4e8;
         }
         :not(pre) > code[class*="language-"] {
             padding: .1em;
@@ -44,50 +43,53 @@
         .token.prolog,
         .token.doctype,
         .token.cdata {
-            color: #999988;
-            font-style: italic;
+            color: slategray;
+        }
+        .token.punctuation {
+            color: #999;
         }
         .token.namespace {
             opacity: .7;
         }
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #905;
+        }
+        .token.selector,
+        .token.attr-name,
         .token.string,
-        .token.attr-value {
-            color: #e3116c;
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #690;
         }
-        .token.punctuation,
-        .token.operator {
-            color: #393A34;
-        }
+        .token.operator,
         .token.entity,
         .token.url,
-        .token.symbol,
-        .token.number,
-        .token.boolean,
-        .token.variable,
-        .token.constant,
-        .token.property,
-        .token.regex,
-        .token.inserted {
-            color: #36acaa;
+        .language-css .token.string,
+        .style .token.string {
+            color: #9a6e3a;
         }
         .token.atrule,
-        .token.keyword,
-        .token.attr-name,
-        .language-autohotkey .token.selector {
-            color: #00a4db;
+        .token.attr-value,
+        .token.keyword {
+            color: #07a;
         }
         .token.function,
-        .token.deleted,
-        .language-autohotkey .token.tag {
-            color: #9a050f;
+        .token.class-name {
+            color: #DD4A68;
         }
-        .token.tag,
-        .token.selector,
-        .language-autohotkey .token.keyword {
-            color: #00009f;
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: #e90;
         }
         .token.important,
-        .token.function,
         .token.bold {
             font-weight: bold;
         }
@@ -148,6 +150,13 @@
         .github-link:hover {
             background-color: #555;
         }
+
+        /* 调整章节标题样式 */
+        .project-content h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+            margin-top: 2em;
+        }
     </style>
 </head>
 <body>
@@ -171,66 +180,140 @@
 
         <section id="overview">
             <h2>Project Overview</h2>
-            <p>This project focuses on developing a robust ETL (Extract, Transform, Load) pipeline for financial risk data and performing comprehensive risk analysis to support informed decision-making.</p>
+            <p>This project focuses on developing a robust ETL (Extract, Transform, Load) pipeline for financial risk data, performing comprehensive risk analysis, and creating a web application to visualize the results. The project utilizes various data sources, including the S&P 500 companies, and implements machine learning models for predictive analysis.</p>
+            
+            <h3>Key Skills Utilized:</h3>
+            <ul>
+                <li><strong>Data Analytics:</strong> Python, RStudio, Tableau, Microsoft Office Suite (Expert in Excel), Bloomberg Terminal.</li>
+                <li><strong>Database Mgmt:</strong> MySQL, PostgreSQL (pgAdmin), NoSQL (MongoDB, PyMongo, Neo4j).</li>
+                <li><strong>Machine Learning:</strong> Python (Scikit-learn, Pipeline, TensorFlow), R (Feature Selection, Clustering, Regression).</li>
+            </ul>
         </section>
 
         <section id="methodology">
             <h2>Methodology</h2>
             <ol>
-                <li>Data Extraction from Multiple Sources</li>
-                <li>Data Cleaning and Transformation</li>
-                <li>Data Loading into a Centralized Database</li>
-                <li>Risk Metrics Calculation</li>
-                <li>Visualization and Reporting</li>
+                <li>Data Extraction from Multiple Sources (Yahoo Finance API)</li>
+                <li>Data Storage in MongoDB (NoSQL database)</li>
+                <li>Data Transformation and Loading into PostgreSQL (Relational database)</li>
+                <li>Data Analysis and Visualization</li>
+                <li>Machine Learning Model Implementation (Decision Tree and Linear Regression)</li>
+                <li>Web Application Development with Flask</li>
             </ol>
         </section>
 
         <section id="implementation">
             <h2>Implementation</h2>
             <div class="implementation-step">
-                <h3>Step 1: Data Extraction</h3>
+                <h3>Step 1: Data Extraction and MongoDB Storage</h3>
                 <pre><code class="language-python">
-import pandas as pd
-import sqlalchemy
+# API details
+url = "https://yfinance-stock-market-data.p.rapidapi.com/price-customdate"
+headers = {
+    "content-type": "application/x-www-form-urlencoded",
+    "X-RapidAPI-Key": "your_api_key",
+    "X-RapidAPI-Host": "yfinance-stock-market-data.p.rapidapi.com"
+}
 
-def extract_data(source):
-    if source == 'csv':
-        data = pd.read_csv('financial_data.csv')
-    elif source == 'database':
-        engine = sqlalchemy.create_engine('postgresql://user:password@localhost:5432/financial_db')
-        data = pd.read_sql('SELECT * FROM risk_data', engine)
-    
-    return data
-
-# More code...
+def update_daily():
+    global request_count
+    for ticker in tqdm(ticker_list, desc="Fetching data"):
+        # ... (code for API request and MongoDB storage)
                 </code></pre>
-                <p>In this step, we extract financial data from various sources, including CSV files and databases, to prepare for transformation and analysis.</p>
+                <p>This step involves fetching financial data from the Yahoo Finance API and storing it in MongoDB collections for each stock ticker.</p>
+            </div>
+
+            <div class="implementation-step">
+                <h3>Step 2: Data Transformation and PostgreSQL Loading</h3>
+                <pre><code class="language-python">
+for ticker in ticker_list:
+    pg_data = []
+    mongo_collection = mongo_db[ticker]
+    mongo_data = list(mongo_collection.find())
+
+    # Transform data and insert into PostgreSQL
+    with pg_conn.cursor() as pg_cur:
+        # ... (code for creating tables and inserting data)
+                </code></pre>
+                <p>This step transforms the data from MongoDB and loads it into PostgreSQL tables for each stock ticker.</p>
+            </div>
+
+            <div class="implementation-step">
+                <h3>Step 3: Data Analysis and Visualization</h3>
+                <pre><code class="language-python">
+def plot_pct_change_plotly(df, ticker):
+    fig = px.line(df, x='date', y='pct_change', title=f"Daily Percentage Change in {ticker} Stock Prices")
+    fig.update_layout(xaxis_title='Date', yaxis_title='Percentage Change', title_x=0.5)
+    fig.show()
+
+# Example usage
+df = get_data('AAPL') 
+df['pct_change'] = daily_pct_change(df)
+plot_pct_change_plotly(df, 'AAPL')
+                </code></pre>
+                <p>This step includes functions for data analysis and visualization, such as calculating and plotting daily percentage changes in stock prices.</p>
+            </div>
+
+            <div class="implementation-step">
+                <h3>Step 4: Machine Learning Model Implementation</h3>
+                <pre><code class="language-python">
+def train_test_model(df):
+    X, y = prepare_data(df)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+    clf = DecisionTreeClassifier(max_depth=3, random_state=42)
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test)
+    return accuracy_score(y_test, y_pred)
+
+# Example usage
+df = get_data('AAPL')
+accuracy = train_test_model(df)
+print("Accuracy of decision tree model for AAPL: {:.2f}%".format(accuracy * 100))
+                </code></pre>
+                <p>This step implements a decision tree classification model to predict stock price movements.</p>
+            </div>
+
+            <div class="implementation-step">
+                <h3>Step 5: Web Application Development with Flask</h3>
+                <pre><code class="language-python">
+@app.route("/results/<ticker>")
+def results(ticker):
+    # ... (code for fetching and analyzing data)
+    return render_template("results.html", ticker=ticker.upper(),
+                           max_price=max_price, min_price=min_price,
+                           avg_price=avg_price, image_base64_5y=image_base64_5y,
+                           image_base64_rf=image_base64_rf,
+                           image_base64_lr=image_base64_lr)
+                </code></pre>
+                <p>This step showcases the Flask web application that allows users to view analysis results for different stock tickers.</p>
             </div>
         </section>
 
         <section id="results">
             <h2>Results and Analysis</h2>
-            <p>Our ETL pipeline and risk analysis yielded significant insights:</p>
+            <p>The project yielded significant insights and capabilities:</p>
             <ul>
-                <li>Reduced data processing time by X% through automation</li>
-                <li>Identified Y high-risk areas previously undetected</li>
-                <li>Improved risk forecasting accuracy by Z%</li>
+                <li>Successfully implemented an ETL pipeline for financial data processing</li>
+                <li>Developed a web application for easy access to stock analysis and predictions</li>
+                <li>Implemented machine learning models (Decision Tree and Linear Regression) for stock trend prediction</li>
+                <li>Created interactive visualizations for historical data and predicted trends</li>
             </ul>
         </section>
 
         <section id="conclusion">
             <h2>Conclusion and Future Work</h2>
-            <p>The project successfully streamlined financial risk data processing and analysis. Future work will focus on:</p>
+            <p>This project successfully developed a comprehensive system for financial risk analysis and stock trend prediction. Future work could include:</p>
             <ul>
-                <li>Implementing machine learning models for predictive risk analysis</li>
-                <li>Expanding the data sources to include real-time market data</li>
-                <li>Developing an interactive dashboard for real-time risk monitoring</li>
+                <li>Implementing more advanced machine learning models for improved prediction accuracy</li>
+                <li>Incorporating real-time data feeds for up-to-the-minute analysis</li>
+                <li>Expanding the analysis to include more financial instruments and markets</li>
+                <li>Developing a more robust and scalable backend infrastructure for handling larger datasets</li>
             </ul>
         </section>
     </main>
 
     <footer class="project-footer">
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <p>&copy; 2023 Haoran Yang. All rights reserved.</p>
     </footer>
 
     <script>

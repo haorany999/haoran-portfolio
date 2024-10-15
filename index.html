@@ -117,6 +117,91 @@
 				margin-right: 10px;
 				color: #1e90ff; /* 使用深蓝色，与您的主题相匹配 */
 			}
+
+			/* 添加代码块样式 */
+			pre[class*="language-"],
+			code[class*="language-"] {
+				color: #383a42;
+				background: #f5f2f0;
+				font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+				font-size: 1em;
+				text-align: left;
+				white-space: pre;
+				word-spacing: normal;
+				word-break: normal;
+				word-wrap: normal;
+				line-height: 1.5;
+				tab-size: 4;
+				hyphens: none;
+			}
+			pre[class*="language-"] {
+				padding: 1em;
+				margin: .5em 0;
+				overflow: auto;
+				border-radius: 0.3em;
+			}
+			:not(pre) > code[class*="language-"] {
+				padding: .1em;
+				border-radius: .3em;
+				white-space: normal;
+			}
+			.token.comment,
+			.token.prolog,
+			.token.doctype,
+			.token.cdata {
+				color: slategray;
+			}
+			.token.punctuation {
+				color: #999;
+			}
+			.token.namespace {
+				opacity: .7;
+			}
+			.token.property,
+			.token.tag,
+			.token.boolean,
+			.token.number,
+			.token.constant,
+			.token.symbol,
+			.token.deleted {
+				color: #905;
+			}
+			.token.selector,
+			.token.attr-name,
+			.token.string,
+			.token.char,
+			.token.builtin,
+			.token.inserted {
+				color: #690;
+			}
+			.token.operator,
+			.token.entity,
+			.token.url,
+			.language-css .token.string,
+			.style .token.string {
+				color: #9a6e3a;
+			}
+			.token.atrule,
+			.token.attr-value,
+			.token.keyword {
+				color: #07a;
+			}
+			.token.function,
+			.token.class-name {
+				color: #DD4A68;
+			}
+			.token.regex,
+			.token.important,
+			.token.variable {
+				color: #e90;
+			}
+			.token.important,
+			.token.bold {
+				font-weight: bold;
+			}
+			.token.italic {
+				font-style: italic;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -158,9 +243,9 @@
 				
 				<h3>Technical Skills</h3>
 				<ul class="skill-list">
-					<li><i class="fas fa-chart-line"></i> Data Analytics: Python, RStudio, Tableau, Microsoft Office Suite (Expert in Excel), Bloomberg Terminal.</li>
-					<li><i class="fas fa-database"></i> Database Mgmt: MySQL, PostgreSQL (pgAdmin), NoSQL (MongoDB, PyMongo, Neo4j).</li>
-					<li><i class="fas fa-brain"></i> Machine Learning: Python (Scikit-learn, Pipeline, TensorFlow), R (Feature Selection, Clustering, Regression).</li>
+					<li><i class="fas fa-chart-line"></i> <strong>Data Analytics:</strong> Python, RStudio, Tableau, Microsoft Office Suite (Expert in Excel), Bloomberg Terminal.</li>
+					<li><i class="fas fa-database"></i> <strong>Database Mgmt:</strong> MySQL, PostgreSQL (pgAdmin), NoSQL (MongoDB, PyMongo, Neo4j).</li>
+					<li><i class="fas fa-brain"></i> <strong>Machine Learning:</strong> Python (Scikit-learn, Pipeline, TensorFlow), R (Feature Selection, Clustering, Regression).</li>
 				</ul>
 			
 				<h2 id="education">Education</h2>
@@ -220,8 +305,8 @@
 					</article>
 					
 					<!-- Work Experience 4 -->
-					<article class="col-12 work-item">
-						<h3>Investment Analyst Intern - Shenzhen Xiuneng Capital Management Co., Ltd. <span class="location">Shenzhen, China</span></h3>
+					<article class="col-12 work-item"> 
+						<h3>Investment Analyst Intern - Shenzhen Xiuneng Capital Management Co., Ltd. <span class="location">Shenzhen, CN</span></h3>
 						<p><strong>Jan 2021 - Jun 2021</strong></p>
 						<p>
 							• PE Due Diligence: Undertook analysis over 120+ low-carbon industry companies, researched market trends, policies and financial performance; optimized the eco-conscious portfolio with prioritized highest potential for growth, resulted in a 17% increase in expected return.<br>
@@ -235,7 +320,7 @@
 
 			<!-- Three -->
 			<section id="three">
-				<h2>Projects</h2>
+				<h2>Recent Projects</h2>
 				<div class="row">
 					<article class="col-6 col-12-xsmall work-item">
 						<a href="projects/project1_tag/project1.html" class="image fit thumb"><img src="projects/assets/images/tag.png" alt="Project 1" /></a>
@@ -253,9 +338,9 @@
 						<p>Analyzed customer data and implemented strategies to optimize revenue for Gyu-Kaku restaurant chain.</p>
 					</article>
 					<article class="col-6 col-12-xsmall work-item">
-						<a href="projects/project4_financial_risk/project4.html" class="image fit thumb"><img src="images/project4.jpg" alt="Project 4" /></a>
-						<h3>Financial Risk Data ETL & Analysis Project</h3>
-						<p>Designed and implemented an ETL pipeline for financial risk data, enabling comprehensive risk analysis and reporting.</p>
+						<a href="projects/project4_financial_risk/project4.html" class="image fit thumb"><img src="projects/assets/images/Stock.png" alt="Project 4" /></a>
+						<h3>Financial Risk Analysis</h3>
+						<p>Developed a comprehensive risk assessment model for financial institutions using machine learning techniques.</p>
 					</article>
 					<article class="col-6 col-12-xsmall work-item">
 						<a href="projects/project5_investment_portfolio/project5.html" class="image fit thumb"><img src="images/project5.jpg" alt="Project 5" /></a>
